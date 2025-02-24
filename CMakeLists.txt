@@ -34,7 +34,13 @@ if(NOT CMAKE_BUILD_TYPE)
 endif()
 
 if(NOT "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
-    add_definitions("-O2 -msse2 -msse3 -std=c++11")
+    if(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|i686|i386")
+        add_compile_options(-O2 -msse2 -msse3 -std=c++11)
+    elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64|arm64")
+        add_compile_options(-O2 -mcpu=native -std=c++11)  # ARM Optimized
+    else()
+        add_compile_options(-O2 -std=c++11)  # Fallback
+    endif()
 endif()
 
 include_directories(
