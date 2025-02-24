@@ -8,5 +8,5 @@ RUN DEBIAN_FRONTEND=noninteractive apt-get -yq install libpcl-dev
 RUN apt install -y cmake git
 
 # Build the ETH3D binaries
-RUN git clone https://github.com/ETH3D/multi-view-evaluation.git
+RUN git clone https://github.com/Vlhermitte/multi-view-evaluation.git
 RUN cd multi-view-evaluation; mkdir build; cd build; cmake ../. ; make;
