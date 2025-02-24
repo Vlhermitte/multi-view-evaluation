@@ -35,11 +35,11 @@ endif()
 
 if(NOT "${CMAKE_CXX_COMPILER_ID}" STREQUAL "MSVC")
     if(CMAKE_SYSTEM_PROCESSOR MATCHES "x86_64|i686|i386")
-        add_compile_options(-O2 -msse2 -msse3 -std=c++14)
+        add_compile_options(-O2 -msse2 -msse3 -std=c++17)
     elseif(CMAKE_SYSTEM_PROCESSOR MATCHES "aarch64|arm64")
-        add_compile_options(-O2 -mcpu=native -std=c++14)  # ARM Optimized
+        add_compile_options(-O2 -mcpu=native -std=c++17)  # ARM Optimized
     else()
-        add_compile_options(-O2 -std=c++14)  # Fallback
+        add_compile_options(-O2 -std=c++17)  # Fallback
     endif()
 endif()
 
