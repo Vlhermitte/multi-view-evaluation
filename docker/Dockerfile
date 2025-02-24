@@ -3,7 +3,7 @@ FROM ubuntu
 # Initialize the environment 
 RUN apt update
 RUN apt install -y libboost-all-dev
-RUN apt install libeigen3-dev
+RUN apt install -y libeigen3-dev
 RUN DEBIAN_FRONTEND=noninteractive apt-get -yq install libpcl-dev
 RUN apt install -y cmake git
 
